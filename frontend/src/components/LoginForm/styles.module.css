@@ -1,0 +1,46 @@
+.container {
+	width: 40%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.form {
+	width: 350px;
+	height: 400px;
+	min-height: 600px;
+	overflow-y: auto;
+}
+
+.header1 {
+	color: var(--cuaternaryColor);
+	text-align: left;
+	font-weight: 400;
+}
+
+.paragraph {
+	width: 100%;
+	color: var(--cuaternaryColor);
+	padding: 5px;
+	line-height: 20px;
+}
+
+.link {
+	color: var(--terciaryColor);
+}
+
+.icon {
+	position: absolute;
+}
+
+@media (max-width: 1000px) {
+	.container {
+		width: 100%;
+	}
+	.form {
+		width: 300px;
+		height: 100%;
+		margin: 20px 0;
+	}
+}

@@ -1,0 +1,15 @@
+.button{
+    width: 100%;
+    background-color: var(--terciaryColor);
+    margin-top: 20px;
+    padding:15px 40px;
+    color: var(--cuaternaryColor);
+    border-radius: 30px;
+    border: none;
+    font-size: 15px;
+}
+
+.button:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}

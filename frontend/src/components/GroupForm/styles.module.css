@@ -1,0 +1,13 @@
+.container{
+    padding: 10px 0;
+    width: 100%;
+}
+
+.label{
+	color: var(--cuaternaryColor);
+    display: block;
+    font-size: 14px;
+    height: 16px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}

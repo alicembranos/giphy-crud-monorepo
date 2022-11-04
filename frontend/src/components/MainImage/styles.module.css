@@ -1,0 +1,19 @@
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	width: 60%;
+}
+
+.image {
+	flex-shrink: 0;
+	min-width: 100%;
+	min-height: 100%;
+}
+
+@media (max-width: 1000px) {
+	.container {
+		display: none;
+	}
+}

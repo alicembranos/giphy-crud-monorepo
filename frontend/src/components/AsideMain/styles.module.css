@@ -1,0 +1,21 @@
+.container {
+	width: 30%;
+	padding: 1rem;
+}
+
+.header {
+	color: var(--cuaternaryColor);
+	text-align: center;
+}
+
+.text {
+	margin: 10px 0;
+	color: var(--cuaternaryColor);
+	text-align: center;
+}
+
+@media (max-width: 800px) {
+	.container {
+		display: none;
+	}
+}

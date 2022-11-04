@@ -1,0 +1,23 @@
+.input {
+	background: transparent;
+	border: 0;
+	color: var(--terciaryColor);
+	font-size: 15px;
+	height: 30px;
+	line-height: 30px;
+	outline: none !important;
+	width: 90%;
+	padding-left: 30px;
+	outline: 0;
+	border-bottom: 2px solid var(--cuaternaryColor);
+}
+
+.inputContainer {
+	position: relative;
+	width: 100%;
+}
+
+.icon{
+	position: absolute;
+	top: 3px;
+}
