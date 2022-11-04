@@ -12,7 +12,7 @@ const StartServer = async () => {
 
 			initServer(app);
 
-			app.listen(() => {
+			app.listen(config.app.PORT, () => {
 				config.logger.info(`Server is listening at port ${config.app.PORT}`);
 			});
 		})

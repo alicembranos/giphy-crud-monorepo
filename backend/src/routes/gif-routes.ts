@@ -1,17 +1,20 @@
 import { Router } from "express";
-import Controller from "../controllers/index";
-import database from "../models/index";
 import authenticate from "../middlewares/auth.middleware";
-
+import {
+	create,
+	readById,
+	readByField,
+	readAll,
+	deleteDoc,
+} from "../controllers/baseController/base.controller";
 const gifRouter = Router();
-const controller = new Controller.Gif();
 
-gifRouter.get("", () => controller.readAll(database.Gif));
-gifRouter.get("/:id", () => controller.readById(database.Gif));
-gifRouter.get("/user", () => controller.readByField(database.Gif));
+gifRouter.get("", readAll);
+gifRouter.get("/:id", readById);
+gifRouter.get("/user", readByField);
 
 gifRouter.use(authenticate);
-gifRouter.post("", () => controller.create(database.Gif));
-gifRouter.delete("/:id", () => controller.delete(database.Gif));
+gifRouter.post("", create);
+gifRouter.delete("/:id", deleteDoc);
 
 export { gifRouter };
