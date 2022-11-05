@@ -1,0 +1,50 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 300px;
+}
+
+.label {
+	color: var(--cuaternaryColor);
+	font-size: 40px;
+	padding: 0 0 20px 0;
+}
+
+.input {
+	width: 350px;
+	padding: 10px 20px;
+	outline: none;
+	border: none;
+	border-bottom: 2px solid var(--cuaternaryColor);
+	background-color: var(--secondaryColor);
+	color: var(--cuaternaryColor);
+	font-size: 15px;
+}
+
+.button {
+	background-color: var(--terciaryColor);
+	font-size: 15px;
+	font-weight: 700;
+	padding: 10px 20px;
+	border-radius: 20px;
+	margin-top: 20px;
+	color: var(--cuaternaryColor);
+	border: none;
+}
+
+.button:hover {
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+@media (max-width: 500px) {
+	.input {
+		width: 290px;
+	}
+
+	.form{
+		height: 200px;
+	}
+}

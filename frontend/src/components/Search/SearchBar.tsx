@@ -1,7 +1,7 @@
 import SearchIcon from "@mui/icons-material/Search";
-import styles from "./styles.module.css";
 import { useContext } from "react";
 import SearchContext from "../../context/SearchContext";
+import styles from "./styles.module.css";
 
 type SearchBarProps = {
 	handleSubmit: () => any;
@@ -10,10 +10,10 @@ type SearchBarProps = {
 };
 
 const SearchBar = () => {
-	const { keyword, setKeyword } = useContext(SearchContext);
-	console.log(keyword);
+	const  setKeyword  = useContext(SearchContext);
+
 	const handleChange = ({ target }: any) => {
-		setKeyword(target.value);
+		console.log(setKeyword)
 	};
 
 	return (
@@ -23,7 +23,7 @@ const SearchBar = () => {
 					<input
 						id="search"
 						type="text"
-						value={keyword}
+						value="{}"
 						placeholder="Search for gifs..."
 						autoFocus
 						onChange={(handleChange)}

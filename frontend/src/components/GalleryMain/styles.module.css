@@ -1,11 +1,12 @@
 .container {
-	width: 70%;
+	width: 75%;
+	height: 80vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
 	margin: 20px;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 .text {

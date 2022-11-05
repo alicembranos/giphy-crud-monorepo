@@ -8,14 +8,14 @@ const GalleryMain = () => {
 	const [gifs, setGifs] = useState<TopLevel[]>([]);
 
 	useEffect(() => {
-		getGifsFromApi({ keyword: "x" }).then((data) => setGifs(data.data));
+		getGifsFromApi({ keyword: "a" }).then((data) => setGifs(data.data));
 	}, []);
 
 	return (
 		<div className={styles.container}>
 			{gifs.length > 0 ? (
 				gifs.map((gif) => (
-					<GifCard key={gif.id} gif={gif.images.fixed_width.url} title={gif.title} />
+					<GifCard key={gif.id} gif={gif.images.fixed_width.url} title={gif.title} id={ gif.id} />
 				))
 			) : (
 				<p className={styles.container}>No results</p>

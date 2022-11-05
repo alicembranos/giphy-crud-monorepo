@@ -26,5 +26,16 @@
 
 .icon {
 	position: absolute;
-	top: 30px;
+	left: 30px;
+	top: 5px;
+	background-color: var(--terciaryColor);
+	padding: 4px;
+	border-radius: 50%;
+	line-height: 10px;
+}
+
+.icon:hover{
+	opacity: 0.8;
+	cursor: pointer;
+	transform: scale(1.1);
 }

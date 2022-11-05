@@ -30,4 +30,11 @@ const getTrendingGifs = async () => {
 	});
 };
 
-export { getGifsFromApi, getTrendingGifs };
+const getGifById = async (id:string) => {
+	const apiURL = `${API_GIPHY}/gifs/${id}?api_key=${API_GIPHY_KEY}`;
+
+	return fetch(apiURL).then((res) => {
+		return res.json();
+	});
+}
+export { getGifsFromApi, getTrendingGifs, getGifById };
