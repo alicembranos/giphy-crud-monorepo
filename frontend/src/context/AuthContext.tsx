@@ -9,9 +9,7 @@ export interface AuthI {
 
 type AuthContextType = {
 	auth: AuthI | undefined;
-	setAuth:
-		| React.Dispatch<React.SetStateAction<AuthI>>
-		| React.Dispatch<React.SetStateAction<undefined>>;
+	setAuth: any;
 };
 
 type Props = {

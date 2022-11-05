@@ -8,9 +8,9 @@ import { TypeForm } from "../../types/types";
 import { useState, useEffect } from "react";
 import { register } from "../../services/auth-service";
 import toast, { Toaster } from "react-hot-toast";
-import styles from "./styles.module.css";
 import useAuth from "../../hooks/useAuth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import styles from "./styles.module.css";
 
 const USER_REGEX = /^[a-zA-Z0-9._]{8,20}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;

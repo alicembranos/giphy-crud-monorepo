@@ -8,7 +8,7 @@ import styles from "./styles.module.css";
 
 const UploadForm = () => {
 	const [gif, setGif] = useState<string>("");
-	const user = useUser();
+	const {user} = useUser();
 	const handleChange = (e: any) => {
 		setGif(e.target.value);
 	};
@@ -20,7 +20,7 @@ const UploadForm = () => {
 
 			if (data.meta.status === 200) {
 				const userId = user?.id;
-				const jwt = user.jwt;
+				const jwt = user?.jwt;
 				const dataGifToConvert = { ...data.data, userId };
 				const gif = formatGifData(dataGifToConvert);
 				const uploadedGif = await uploadGif({ gif, jwt });

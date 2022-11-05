@@ -5,7 +5,7 @@ export const capitalize = (text: string): string => {
 export const formatGifData = (gifData: any) => {
 	return {
 		type: gifData.type,
-		_id: gifData.id,
+		id: gifData.id,
 		url: gifData.url,
 		slug: gifData.slug,
 		bitly_gif_url: gifData.bitly_gif_url,

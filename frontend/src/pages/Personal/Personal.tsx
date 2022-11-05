@@ -1,7 +1,8 @@
+import PersonalView from "../../components/PersonalView/PersonalView"
 
 const Personal = () => {
   return (
-    <div>Personal</div>
+    <PersonalView/>
   )
 }
 

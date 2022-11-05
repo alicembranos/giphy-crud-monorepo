@@ -1,7 +1,7 @@
 import { API_URL_GIF } from "./settings";
 export interface IGif {
 	type: string;
-	_id: string;
+	id: string;
 	url: string;
 	slug: string;
 	bitly_gif_url: string;
@@ -33,8 +33,18 @@ type UploadGifProps = {
 	gif: IGif;
 };
 
+const getUsersGif = async (jwt: string) => {
+	return fetch(`${API_URL_GIF}/user`, {
+		method: "GET",
+		headers: {
+			Authorization: `Bearer ${jwt}`,
+		},
+	}).then((res) => {
+		return res.json();
+	});
+};
+
 const uploadGif = async ({ gif, jwt }: UploadGifProps) => {
-	console.log({ ...gif });
 	return fetch(`${API_URL_GIF}`, {
 		method: "POST",
 		headers: {
@@ -60,4 +70,4 @@ const deleteGif = async (id: string) => {
 	});
 };
 
-export { uploadGif, deleteGif };
+export { uploadGif, deleteGif, getUsersGif };

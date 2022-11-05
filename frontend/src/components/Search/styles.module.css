@@ -23,7 +23,7 @@
 	background-color: var(--secondaryColor);
 	font-size: 15px;
 	padding: 0 25px 0 20px;
-	color: (--cuaternaryColor);
+	color: var(--cuaternaryColor);
 }
 
 .button {

@@ -24,8 +24,25 @@
 	color: var(--cuaternaryColor);
 }
 
+.icons{
+	display: flex;
+	position: absolute;
+}
+
+
+.icon2 {
+	margin: 5px;
+	left: 30px;
+	top: 5px;
+	background-color: var(--terciaryColor);
+	padding: 4px;
+	border-radius: 50%;
+	line-height: 10px;
+}
+
 .icon {
 	position: absolute;
+	margin: 5px;
 	left: 30px;
 	top: 5px;
 	background-color: var(--terciaryColor);

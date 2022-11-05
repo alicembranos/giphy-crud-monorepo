@@ -7,7 +7,7 @@ const useUser = () => {
 		setUser(JSON.parse(localStorage.getItem("auth") as string));
 	}, []);
 
-	return user;
+	return {user, setUser};
 };
 
 export default useUser;

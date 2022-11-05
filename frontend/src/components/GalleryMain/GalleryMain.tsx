@@ -1,24 +1,23 @@
-import styles from "./styles.module.css";
-import { useEffect, useState, memo } from "react";
-import { getGifsFromApi } from "../../services/api-giphy";
-import { TopLevel } from "../../types/inter";
+import { memo } from "react";
+import { GalleryMainProps } from "../../types/types";
 import GifCard from "../GifCard/GifCard";
+import styles from "./styles.module.css";
 
-const GalleryMain = () => {
-	const [gifs, setGifs] = useState<TopLevel[]>([]);
-
-	useEffect(() => {
-		getGifsFromApi({ keyword: "a" }).then((data) => setGifs(data.data));
-	}, []);
-
+const GalleryMain = ({ gifs, isUserCard }: GalleryMainProps) => {
 	return (
 		<div className={styles.container}>
 			{gifs.length > 0 ? (
 				gifs.map((gif) => (
-					<GifCard key={gif.id} gif={gif.images.fixed_width.url} title={gif.title} id={ gif.id} />
+					<GifCard
+						key={gif.id}
+						gif={gif.images?.fixed_width.url ?? gif.image}
+						title={gif.title}
+						id={gif.id}
+						isUserCard={isUserCard}
+					/>
 				))
 			) : (
-				<p className={styles.container}>No results</p>
+				<p className={styles.text}>No results for this word...</p>
 			)}
 		</div>
 	);

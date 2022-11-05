@@ -1,32 +1,37 @@
 import SearchIcon from "@mui/icons-material/Search";
-import { useContext } from "react";
-import SearchContext from "../../context/SearchContext";
+import { useEffect } from "react";
+import { getGifsFromApi } from "../../services/api-giphy";
+import { SearchBarProps } from "../../types/types";
 import styles from "./styles.module.css";
 
-type SearchBarProps = {
-	handleSubmit: () => any;
-	handleChange: () => any;
-	keyword: string;
-};
-
-const SearchBar = () => {
-	const  setKeyword  = useContext(SearchContext);
-
+const SearchBar = ({ keyword, setKeyword, setGifs }: SearchBarProps) => {
 	const handleChange = ({ target }: any) => {
-		console.log(setKeyword)
+		setKeyword(target.value);
 	};
+
+	const handleSubmit = () => {
+		getGifsFromApi({ keyword }).then((data) => setGifs(data.data));
+	};
+
+	useEffect(() => {
+		if (keyword.length === 0) {
+			getGifsFromApi({ keyword: "a" }).then((data) => setGifs(data.data));
+			return;
+		}
+		getGifsFromApi({ keyword }).then((data) => setGifs(data.data));
+	}, [keyword, setGifs]);
 
 	return (
 		<div>
-			<form className={styles.form} onSubmit={() => {}}>
+			<form className={styles.form} onSubmit={handleSubmit}>
 				<div className={styles.box}>
 					<input
 						id="search"
 						type="text"
-						value="{}"
+						value={keyword}
 						placeholder="Search for gifs..."
 						autoFocus
-						onChange={(handleChange)}
+						onChange={handleChange}
 						className={styles.input}
 					/>
 					<button type="submit" className={styles.button}>

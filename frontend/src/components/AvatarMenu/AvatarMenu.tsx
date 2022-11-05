@@ -8,16 +8,35 @@ import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import Logout from "@mui/icons-material/Logout";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import useUser from "../../hooks/useUser";
+import styles from "./styles.module.css";
 
 export default function AvatarMenu() {
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 	const open = Boolean(anchorEl);
+	const { setAuth } = useAuth();
+	const { setUser } = useUser();
+	const location = useLocation();
+	const navigate = useNavigate();
+	const from = location.state?.from?.pathname || "/main";
+
 	const handleClick = (event: React.MouseEvent<HTMLElement>) => {
 		setAnchorEl(event.currentTarget);
 	};
+
 	const handleClose = () => {
 		setAnchorEl(null);
 	};
+
+	const logout = () => {
+		setUser(undefined);
+		setAuth(undefined);
+		localStorage.removeItem("auth");
+		navigate(from, { replace: true });
+	};
+
 	return (
 		<React.Fragment>
 			<Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
@@ -25,7 +44,7 @@ export default function AvatarMenu() {
 					<IconButton
 						onClick={handleClick}
 						size="medium"
-						sx={{ ml: 2, mr:2 }}
+						sx={{ ml: 2, mr: 2 }}
 						aria-controls={open ? "account-menu" : undefined}
 						aria-haspopup="true"
 						aria-expanded={open ? "true" : undefined}
@@ -69,14 +88,18 @@ export default function AvatarMenu() {
 				transformOrigin={{ horizontal: "right", vertical: "top" }}
 				anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
 			>
-				<MenuItem>
-					<Avatar /> Main
-				</MenuItem>
-				<MenuItem>
-					<Avatar /> Personal
-				</MenuItem>
+				<Link to="/main" className={styles.link}>
+					<MenuItem>
+						<Avatar /> Main
+					</MenuItem>
+				</Link>
+				<Link to="/personal" className={styles.link}>
+					<MenuItem>
+						<Avatar /> Personal
+					</MenuItem>
+				</Link>
 				<Divider />
-				<MenuItem>
+				<MenuItem onClick={logout}>
 					<ListItemIcon>
 						<Logout fontSize="small" />
 					</ListItemIcon>

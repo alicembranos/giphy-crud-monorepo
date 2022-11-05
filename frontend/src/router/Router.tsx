@@ -14,7 +14,7 @@ const Router = () => {
 				{/*Public routes */}
 				<Route path="/login" element={<Login />} />
 				<Route path="/register" element={<Register />} />
-				<Route path="/main" element={<Main />} />
+				<Route index path="/main" element={<Main />} />
 
 				{/*Private routes */}
 				<Route element={<RequireAuth />}>

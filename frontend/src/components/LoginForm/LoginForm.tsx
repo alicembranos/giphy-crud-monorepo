@@ -43,9 +43,11 @@ const LoginForm = () => {
 
 		try {
 			const data = await login(userForm);
+			console.log(data)
 			if (data.ok) {
 				setAuth(data.data);
 				toast.success("hubo exito!");
+				navigate(from, { replace: true });
 			}
 			if (!data.ok) {
 				toast.error(data.msg);
@@ -59,7 +61,6 @@ const LoginForm = () => {
 			password: "",
 		});
 
-		navigate(from, { replace: true });
 	};
 
 	return (
