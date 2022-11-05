@@ -8,7 +8,7 @@ import { gifRouter } from "./routes/gif-routes";
 
 dotenv.config();
 
-export default async (app: Express) => {
+export default async (app) => {
 	app.use(morgan("dev"));
 	app.use(helmet());
 	app.use(cors());

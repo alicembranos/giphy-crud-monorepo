@@ -4,7 +4,7 @@ import connect from "./database/connect";
 import initServer from "./server";
 
 const StartServer = async () => {
-	const app: Express = express();
+	const app = express();
 
 	connect()
 		.then(async function onServerInit() {

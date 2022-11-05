@@ -2,19 +2,21 @@ import { NextFunction, Request, Response } from "express";
 import { Model } from "mongoose";
 import { handleError } from "../../utils";
 
-const create = async <T>(model: Model<T>) => {
+const create =
+	<T>(model: Model<T>) =>
 	async (req: Request, res: Response, _next: NextFunction) => {
 		const body = { ...req.body } as T;
 		try {
 			const doc = await model.create(body);
+			console.log(doc);
 			res.status(200).send({ ok: true, data: doc });
 		} catch (error: unknown) {
 			res.status(500).json({ ok: false, msg: handleError(error) });
 		}
 	};
-};
 
-const readById = async <T>(model: Model<T>) => {
+const readById =
+	<T>(model: Model<T>) =>
 	async (req: Request, res: Response, _next: NextFunction) => {
 		const { id } = req.params;
 		try {
@@ -28,9 +30,9 @@ const readById = async <T>(model: Model<T>) => {
 			res.status(500).json({ ok: false, msg: handleError(error) });
 		}
 	};
-};
 
-const readByField = async <T>(model: Model<T>) => {
+const readByField =
+	<T>(model: Model<T>) =>
 	async (req: Request, res: Response, _next: NextFunction) => {
 		const { user } = req.body;
 		try {
@@ -44,21 +46,21 @@ const readByField = async <T>(model: Model<T>) => {
 			res.status(500).json({ ok: false, msg: handleError(error) });
 		}
 	};
-};
 
-const readAll = async <T>(model: Model<T>) => {
+const readAll =
+	<T>(model: Model<T>) =>
 	async (_req: Request, res: Response, _next: NextFunction) => {
 		try {
-			const doc = await model.find().populate("user").lean();
+			const doc = await model.find().populate("user").lean().exec();
 
 			res.status(200).send({ ok: true, data: doc });
 		} catch (error) {
 			res.status(500).json({ ok: false, msg: handleError(error) });
 		}
 	};
-};
 
-const deleteDoc = async <T>(model: Model<T>) => {
+const deleteDoc =
+	<T>(model: Model<T>) =>
 	async (req: Request, res: Response, _next: NextFunction) => {
 		const { id } = req.params;
 		try {
@@ -72,6 +74,5 @@ const deleteDoc = async <T>(model: Model<T>) => {
 			res.status(500).json({ ok: false, msg: handleError(error) });
 		}
 	};
-};
 
 export { create, readById, readByField, readAll, deleteDoc };
