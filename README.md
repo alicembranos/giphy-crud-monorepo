@@ -13,7 +13,7 @@
   </a>
 </div>
 
-## Demo
+## Design
   <div id="header" align="center">
   <img src="./frontend/src/assets/images/figma.png" width="100%"/>
 </div> 
