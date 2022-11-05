@@ -2,7 +2,7 @@ import IUser from "./user.interface";
 
 export interface IGif{
     type: string;
-    _id: string;
+    id: string;
     url: string;
     slug: string;
     bitly_gif_url: string;

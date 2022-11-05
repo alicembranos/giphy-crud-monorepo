@@ -5,9 +5,8 @@ const GifSchema = new Schema<IGif>({
 	type: {
 		type: String,
 	},
-	_id: {
+	id: {
 		type: String,
-		required: true,
 	},
 	url: {
 		type: String,

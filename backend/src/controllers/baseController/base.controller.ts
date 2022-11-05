@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { Model } from "mongoose";
+import { Model, Types } from "mongoose";
 import { handleError } from "../../utils";
 
 const create =
@@ -34,12 +34,10 @@ const readById =
 const readByField =
 	<T>(model: Model<T>) =>
 	async (req: Request, res: Response, _next: NextFunction) => {
-		const { user } = req.body;
+		const user = new Types.ObjectId(req.user);
+		console.log(user, "user");
 		try {
-			const doc = await model
-				.findOne({ ...user })
-				.populate("user")
-				.lean();
+			const doc = await model.find({ user: user }).populate("user").lean();
 
 			res.status(200).send({ ok: true, data: doc });
 		} catch (error) {

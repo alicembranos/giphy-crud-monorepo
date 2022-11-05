@@ -1,9 +1,11 @@
+import { Types } from "mongoose";
+
 export {};
 
 declare global {
 	namespace Express {
 		interface Request {
-			user: import("../../interfaces/payload.interface").default;
+			user: string | Types.ObjectId;
 		}
 	}
 }
