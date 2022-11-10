@@ -21,7 +21,7 @@ const LoginForm = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	// const from = location.state?.from?.pathname || "/main";
-	const from = "/main";
+	const from = "/";
 
 	const handleChange = (e: any) => {
 		const { name, value } = e.target;

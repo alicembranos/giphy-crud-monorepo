@@ -27,7 +27,7 @@ const RegisterForm = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	// const from = location.state?.from?.pathname || "/main";
-	const from = "/main";
+	const from = "/";
 
 	const handleChange = (e: any) => {
 		const { name, value } = e.target;
@@ -60,7 +60,7 @@ const RegisterForm = () => {
 			const data = await register(userForm);
 			if (data.ok) {
 				setAuth(data.data);
-				toast.success("hubo exito!");
+				toast.success("Go!");
 			}
 			if (!data.ok) {
 				toast.error(data.msg);
