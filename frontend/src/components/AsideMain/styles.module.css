@@ -1,6 +1,8 @@
 .container {
-	width:25%;
-	padding: 1rem 0;
+	width: 25%;
+	height: 75vh;
+	padding: 1rem 0.5rem;
+	overflow: auto;
 }
 
 .header {

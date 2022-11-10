@@ -12,9 +12,9 @@ const Router = () => {
 		<Routes>
 			<Route path="/" element={<Layout />}>
 				{/*Public routes */}
+				<Route index path="/" element={<Main />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/register" element={<Register />} />
-				<Route index path="/main" element={<Main />} />
 
 				{/*Private routes */}
 				<Route element={<RequireAuth />}>
